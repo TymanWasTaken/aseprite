@@ -43,6 +43,11 @@ jobs:
       shell: bash
       run: |
         cd build && ninja
+        cd ..
+        cmake --install build --prefix=staging --strip
+    - uses: actions/upload-artifact@v3
+      with:
+        path: staging/bin
     - name: Running C++ Tests
       shell: bash
       run: |
