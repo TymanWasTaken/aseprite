@@ -43,11 +43,6 @@ jobs:
       shell: bash
       run: |
         cd build && ninja
-        cd ..
-        cmake --install build --prefix=staging --strip
-    - uses: actions/upload-artifact@v3
-      with:
-        path: staging/bin
     - name: Running C++ Tests
       shell: bash
       run: |
@@ -71,3 +66,6 @@ jobs:
         git clone --branch $TESTS_BRANCH --recursive https://github.com/aseprite/tests.git
         cd tests
         $XVFB bash run-tests.sh
+    - uses: actions/upload-artifact@v3
+      with:
+        path: build/bin/aseprite
