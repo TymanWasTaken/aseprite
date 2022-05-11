@@ -68,4 +68,5 @@ jobs:
         $XVFB bash run-tests.sh
     - uses: actions/upload-artifact@v3
       with:
+        name: ${{ matrix.os }}-build
         path: build/bin/aseprite
